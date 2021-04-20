@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from ckeditor.fields import RichTextField
 
 
 class StatusChoice(models.TextChoices):
@@ -13,7 +14,7 @@ class News(models.Model):
     subtitle = models.CharField(max_length=3000, verbose_name='Под заголовок')
     img = models.ImageField(null=True, blank=True, verbose_name='фото', upload_to="img")
     file = models.FileField(null=True, blank=True, verbose_name='документ', upload_to="document")
-    text = models.TextField(max_length=5000, verbose_name='Текст')
+    text = RichTextField()
     video = models.URLField()
     status = models.CharField(_('status'), max_length=45,
                               choices=StatusChoice.choices,
@@ -37,23 +38,24 @@ class ContentOrganizationCategory(models.Model):
 
     class Meta:
         verbose_name = 'Категория организации контента'
+        verbose_name_plural = 'Категория организации контента'
 
 
 class ContentOrganization(models.Model):
-    category = models.ForeignKey(ContentOrganizationCategory,on_delete=models.CASCADE,
+    category = models.ForeignKey(ContentOrganizationCategory, on_delete=models.CASCADE,
                                  related_name='related_to_content', verbose_name='Категория')
     title = models.CharField(max_length=200, verbose_name="Заголовок")
-    text = models.TextField(max_length=5000, verbose_name='Текст')
+    text = RichTextField()
     img = models.ImageField(null=True, blank=True, verbose_name='фото', upload_to="img")
     video = models.URLField(null=True, blank=True, verbose_name='ссылка на фидео')
     create_at = models.DateField(auto_now_add=True, verbose_name="Дата создания")
-    data_cr = models.DateField(auto_now_add=True, verbose_name='Дата создания')
 
     def __str__(self):
         return self.category
 
     class Meta:
-        verbose_name = 'Сонтент организации'
+        verbose_name = 'Контент организации'
+        verbose_name_plural = 'Контент организации'
 
 
 class OrganizationStructure(models.Model):
@@ -72,7 +74,7 @@ class OrganizationStructure(models.Model):
 
 
 class CategoryNPA(models.Model):
-    name = models.CharField(verbose_name="Категория НПА")
+    name = models.CharField(verbose_name="Категория НПА", max_length=100)
     data_cr = models.DateField(auto_now_add=True, verbose_name='Дата создания')
 
     def __str__(self):
@@ -90,7 +92,7 @@ class NPA(models.Model):
     document_type = models.CharField(max_length=300, verbose_name='Вид документа')
     date = models.DateField(verbose_name='Дата')
     file = models.FileField(verbose_name='Документ', upload_to='doc')
-    text = models.TextField(max_length=5000, verbose_name='Содержание')
+    text = RichTextField()
     data_cr = models.DateField(auto_now_add=True, verbose_name="Дата создания")
 
     def __str__(self):
@@ -123,7 +125,7 @@ class Structure(models.Model):
 
 
 class Position(models.Model):
-    description = models.CharField()
+    description = models.CharField(max_length=100, verbose_name='Описание')
     data_cr = models.DateField(auto_now_add=True, verbose_name='Дата создания')
 
     def __str__(self):
@@ -176,8 +178,7 @@ class CategoryOC(models.Model):
 
 
 class StructureOC(models.Model):
-    category = models.ForeignKey(CategoryOC, on_delete=models.CASCADE,
-                                 related_name='related_to_oc', verbose_name='Категория ОС')
+    category = models.ForeignKey(CategoryOC, on_delete=models.CASCADE, verbose_name='Категория ОС')
     initials = models.CharField(max_length=300, verbose_name='Инициалы')
     Position = models.CharField(max_length=300, verbose_name='Должность и место работы')
     area_of_expertise = models.CharField(max_length=300, verbose_name='Область экспертизы')
@@ -194,7 +195,7 @@ class StructureOC(models.Model):
 
 class RegulationsOC(models.Model):
     category = models.ForeignKey(CategoryOC, on_delete=models.CASCADE,
-                                 related_name='related_to_oc', verbose_name='Категория ОС')
+                                 related_name='related', verbose_name='Категория ОС')
     description = models.CharField(max_length=400, verbose_name="Описание")
     file = models.FileField(verbose_name="Фаил", upload_to="OC")
     data_cr = models.DateField(auto_now_add=True, verbose_name='Дата создания')
@@ -208,7 +209,7 @@ class RegulationsOC(models.Model):
 
 class RecommendationOC(models.Model):
     category = models.ForeignKey(CategoryOC, on_delete=models.CASCADE,
-                                 related_name='related_to_oc', verbose_name='Категория ОС')
+                                 related_name='category', verbose_name='Категория ОС')
     name = models.CharField(max_length=300, verbose_name="Наименование")
     file = models.FileField(verbose_name="Фаил", upload_to='OC')
     data_cr = models.DateField(auto_now_add=True, verbose_name='Дата создания')
@@ -232,7 +233,7 @@ class CorruptionCategory(models.Model):
 
 class Corruption(models.Model):
     category = models.ForeignKey(CorruptionCategory, on_delete=models.CASCADE,
-                                 related_name='related_to_oc', verbose_name='Категория')
+                                 related_name='category', verbose_name='Категория')
     title = models.CharField(max_length=400, verbose_name="Заголовок")
     document_type = models.CharField(null=True, blank=True, max_length=200, verbose_name="Тип токумента")
     file = models.FileField(verbose_name='Файл', upload_to="doc")
