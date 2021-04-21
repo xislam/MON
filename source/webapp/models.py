@@ -303,3 +303,4 @@ class SUR(models.Model):
 
     class Meta:
         verbose_name = 'ЦУР'
+

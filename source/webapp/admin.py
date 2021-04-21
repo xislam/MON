@@ -151,3 +151,4 @@ class NPAAdmin(TabbedTranslationAdmin):
     list_display = 'title', 'subtitle',
     search_fields = ['title', 'subtitle']
 
+

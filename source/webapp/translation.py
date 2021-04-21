@@ -31,3 +31,8 @@ class CategoryNPA(TranslationOptions):
 class NPA(TranslationOptions):
     fields = 'title', 'subtitle', 'document_type', 'file', 'text'
 
+
+@register(Leadership)
+class Leadership(TranslationOptions):
+    fields = 'title',
+
