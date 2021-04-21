@@ -71,6 +71,7 @@ class OrganizationStructure(models.Model):
 
     class Meta:
         verbose_name = 'Структура организации'
+        verbose_name_plural = 'Структура организации'
 
 
 class CategoryNPA(models.Model):
@@ -82,11 +83,12 @@ class CategoryNPA(models.Model):
 
     class Meta:
         verbose_name = 'Категория НПА'
+        verbose_name_plural = 'Категория НПА'
 
 
 class NPA(models.Model):
     category = models.ForeignKey(CategoryNPA, on_delete=models.CASCADE,
-                             related_name='related_to_content', verbose_name='Категория НПА')
+                                 related_name='related_to_content', verbose_name='Категория НПА')
     title = models.CharField(verbose_name="Заголово", max_length=300)
     subtitle = models.CharField(verbose_name="Под зоголовок", max_length=300)
     document_type = models.CharField(max_length=300, verbose_name='Вид документа')
@@ -100,6 +102,7 @@ class NPA(models.Model):
 
     class Meta:
         verbose_name = 'НПА'
+        verbose_name_plural = 'Категория НПА'
 
 
 class Leadership(models.Model):
@@ -114,6 +117,7 @@ class Leadership(models.Model):
 
     class Meta:
         verbose_name = 'Руковотство'
+        verbose_name_plural = 'Руковотство'
 
 
 class Structure(models.Model):
@@ -133,6 +137,7 @@ class Position(models.Model):
 
     class Meta:
         verbose_name = 'Положение'
+        verbose_name_plural = 'Положение'
 
 
 class Study(models.Model):
@@ -150,6 +155,7 @@ class Study(models.Model):
 
     class Meta:
         verbose_name = 'Исследования'
+        verbose_name_plural = 'Исследования'
 
 
 class Advertisement():
@@ -164,6 +170,7 @@ class Advertisement():
 
     class Meta:
         verbose_name = "Объявления"
+        verbose_name_plural = 'Объявления'
 
 
 class CategoryOC(models.Model):
@@ -175,6 +182,7 @@ class CategoryOC(models.Model):
 
     class Meta:
         verbose_name = "Категория ОС"
+        verbose_name_plural = 'Категория ОС'
 
 
 class StructureOC(models.Model):
@@ -191,6 +199,7 @@ class StructureOC(models.Model):
 
     class Meta:
         verbose_name = "Состав ОС"
+        verbose_name_plural = 'Состав ОС'
 
 
 class RegulationsOC(models.Model):
@@ -205,6 +214,7 @@ class RegulationsOC(models.Model):
 
     class Meta:
         verbose_name = "Нормативно-правовые акты"
+        verbose_name_plural = 'Нормативно-правовые акты'
 
 
 class RecommendationOC(models.Model):
@@ -219,6 +229,7 @@ class RecommendationOC(models.Model):
 
     class Meta:
         verbose_name = "Рекомендации ОС"
+        verbose_name_plural = 'Рекомендации ОС'
 
 
 class CorruptionCategory(models.Model):
@@ -229,6 +240,7 @@ class CorruptionCategory(models.Model):
 
     class Meta:
         verbose_name = "Категория антикоррупционной деятельности"
+        verbose_name_plural = "Категория антикоррупционной деятельности"
 
 
 class Corruption(models.Model):
@@ -244,6 +256,7 @@ class Corruption(models.Model):
 
     class Meta:
         verbose_name = "Антикоррупционная деятельность"
+        verbose_name_plural = "Антикоррупционная деятельность"
 
 
 class VacancyCategory(models.DateField):
@@ -254,6 +267,7 @@ class VacancyCategory(models.DateField):
 
     class Meta:
         verbose_name = "Категория вакансии"
+        verbose_name_plural = "Категория вакансии"
 
 
 class Vacancy(models.Model):
@@ -268,6 +282,7 @@ class Vacancy(models.Model):
 
     class Meta:
         verbose_name = "Вкансии"
+        verbose_name_plural = "Вкансии"
 
 
 class Contacts(models.Model):
@@ -278,7 +293,8 @@ class Contacts(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Контвкты'
+        verbose_name = 'Контакты'
+        verbose_name_plural = 'Контакты'
 
 
 class Directory(models.Model):
@@ -290,6 +306,7 @@ class Directory(models.Model):
 
     class Meta:
         verbose_name = 'Справочник'
+        verbose_name_plural = 'Справочник'
 
 
 class SUR(models.Model):
@@ -303,4 +320,4 @@ class SUR(models.Model):
 
     class Meta:
         verbose_name = 'ЦУР'
-
+        verbose_name_plural = 'ЦУР'

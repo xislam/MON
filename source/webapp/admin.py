@@ -150,5 +150,61 @@ class NPAForm(forms.ModelForm):
 class NPAAdmin(TabbedTranslationAdmin):
     list_display = 'title', 'subtitle',
     search_fields = ['title', 'subtitle']
+    form = NPAForm
+
+
+admin.site.register(NPA, NPAAdmin)
+
+
+class LeadershipForm(forms.Form):
+    class Meta:
+        models = Leadership
+        fields = '__all__'
+
+    class Media:
+        js = (
+            'modeltranslation/js/force_jquery.js',
+            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js',
+            'modeltranslation/js/tabbed_translation_fields.js',
+        )
+        css = {
+            'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
+        }
+
+
+class LeadershipAdmin(TabbedTranslationAdmin):
+    class Meta:
+        list_display = 'title',
+        search_fields = ['title']
+        form = LeadershipForm
+
+
+admin.site.register(Leadership, LeadershipAdmin)
+
+
+class StructureForm(forms.Form):
+    class Meta:
+        models = Structure
+        fields = '__all__'
+
+    class Media:
+        js = (
+            'modeltranslation/js/force_jquery.js',
+            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js',
+            'modeltranslation/js/tabbed_translation_fields.js',
+        )
+        css = {
+            'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
+        }
+
+
+class StructureAdmin(TabbedTranslationAdmin):
+    class Meta:
+        list_display = 'name',
+        search_fields = ['name']
+        form = Structure
+
+
+admin.site.register(Structure, StructureAdmin)
 
 

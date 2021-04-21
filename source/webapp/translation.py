@@ -36,3 +36,7 @@ class NPA(TranslationOptions):
 class Leadership(TranslationOptions):
     fields = 'title',
 
+
+@register(Structure)
+class Structure(TranslationOptions):
+    fields = 'name',
