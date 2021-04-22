@@ -102,7 +102,7 @@ class NPA(models.Model):
 
     class Meta:
         verbose_name = 'НПА'
-        verbose_name_plural = 'Категория НПА'
+        verbose_name_plural = 'НПА'
 
 
 class Leadership(models.Model):
@@ -129,7 +129,7 @@ class Structure(models.Model):
 
 
 class Position(models.Model):
-    description = models.CharField(max_length=100, verbose_name='Описание')
+    description = RichTextField()
     data_cr = models.DateField(auto_now_add=True, verbose_name='Дата создания')
 
     def __str__(self):
@@ -158,10 +158,10 @@ class Study(models.Model):
         verbose_name_plural = 'Исследования'
 
 
-class Advertisement():
+class Advertisement(models.Model):
     title = models.CharField(max_length=300, verbose_name='Заголовок')
     data = models.DateField(verbose_name='Дата')
-    text = models.CharField(max_length=300, verbose_name='Текст')
+    text = RichTextField()
     file = models.FileField(null=True, blank=True, verbose_name="Файл", upload_to='boc')
     data_cr = models.DateField(auto_now_add=True, verbose_name='Дата создания')
 
@@ -188,7 +188,7 @@ class CategoryOC(models.Model):
 class StructureOC(models.Model):
     category = models.ForeignKey(CategoryOC, on_delete=models.CASCADE, verbose_name='Категория ОС')
     initials = models.CharField(max_length=300, verbose_name='Инициалы')
-    Position = models.CharField(max_length=300, verbose_name='Должность и место работы')
+    position = models.CharField(max_length=300, verbose_name='Должность и место работы')
     area_of_expertise = models.CharField(max_length=300, verbose_name='Область экспертизы')
     phone = models.CharField(max_length=300, verbose_name="Телефон")
     email = models.EmailField(verbose_name='Почта')
@@ -287,7 +287,7 @@ class Vacancy(models.Model):
 
 class Contacts(models.Model):
     title = models.CharField(max_length=100, verbose_name="заголовок")
-    contacts = models.CharField(max_length=3000, verbose_name='Контакты')
+    contacts = RichTextField()
 
     def __str__(self):
         return self.title
@@ -299,7 +299,7 @@ class Contacts(models.Model):
 
 class Directory(models.Model):
     title = models.CharField(max_length=300, verbose_name="Организации")
-    contacts = models.CharField(max_length=3000, verbose_name='Контакты')
+    contacts = RichTextField()
 
     def __str__(self):
         return self.title

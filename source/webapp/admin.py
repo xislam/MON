@@ -202,9 +202,87 @@ class StructureAdmin(TabbedTranslationAdmin):
     class Meta:
         list_display = 'name',
         search_fields = ['name']
-        form = Structure
+        form = StructureForm
 
 
 admin.site.register(Structure, StructureAdmin)
+
+
+class PositionForm(forms.Form):
+    class Meta:
+        models = Position
+        fields = '__all__'
+
+    class Media:
+        js = (
+            'modeltranslation/js/force_jquery.js',
+            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js',
+            'modeltranslation/js/tabbed_translation_fields.js',
+        )
+        css = {
+            'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
+        }
+
+
+class PositionAdmin(TabbedTranslationAdmin):
+    class Meta:
+        list_display = 'description',
+        search_fields = ['description']
+        form = PositionForm
+
+
+admin.site.register(Position, PositionAdmin)
+
+
+class StudyForm(forms.Form):
+    class Meta:
+        models = Study
+        fields = '__all__'
+
+    class Media:
+        js = (
+            'modeltranslation/js/force_jquery.js',
+            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js',
+            'modeltranslation/js/tabbed_translation_fields.js',
+        )
+        css = {
+            'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
+        }
+
+
+class StudyAdmin(TabbedTranslationAdmin):
+    class Meta:
+        list_display = 'directions', 'document_type', 'author',
+        search_fields = ['directions', 'document_type', 'author', 'file', 'name', ]
+        form = StudyForm
+
+
+admin.site.register(Study, StudyAdmin)
+
+
+class AdvertisementForm(forms.Form):
+    class Meta:
+        models = Advertisement
+        fields = '__all__'
+
+    class Media:
+        js = (
+            'modeltranslation/js/force_jquery.js',
+            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js',
+            'modeltranslation/js/tabbed_translation_fields.js',
+        )
+        css = {
+            'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
+        }
+
+
+class AdvertisementAdmin(TabbedTranslationAdmin):
+    class Meta:
+        list_display = 'title'
+        search_fields = ['title' ]
+        form = AdvertisementForm
+
+
+admin.site.register(Advertisement, AdvertisementAdmin)
 
 
