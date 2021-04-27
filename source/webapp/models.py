@@ -259,7 +259,7 @@ class Corruption(models.Model):
         verbose_name_plural = "Антикоррупционная деятельность"
 
 
-class VacancyCategory(models.DateField):
+class VacancyCategory(models.Model):
     name = models.CharField(max_length=300, verbose_name="Категория")
 
     def __str__(self):

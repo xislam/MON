@@ -14,7 +14,7 @@ class ContentOrganizationCategory(TranslationOptions):
 
 @register(ContentOrganization)
 class ContentOrganization(TranslationOptions):
-    fields = 'title', 'text', 'img', 'video'
+    fields = 'title', 'text', 'img', 'video',
 
 
 @register(OrganizationStructure)
@@ -29,7 +29,7 @@ class CategoryNPA(TranslationOptions):
 
 @register(NPA)
 class NPA(TranslationOptions):
-    fields = 'title', 'subtitle', 'document_type', 'file', 'text'
+    fields = 'title', 'subtitle', 'document_type', 'file', 'text',
 
 
 @register(Leadership)
@@ -59,17 +59,17 @@ class Advertisement(TranslationOptions):
 
 @register(CategoryOC)
 class CategoryOC(TranslationOptions):
-    fields = 'name'
+    fields = 'name',
 
 
 @register(StructureOC)
 class StructureOC(TranslationOptions):
-    fields = 'position'
+    fields = 'position',
 
 
 @register(RegulationsOC)
 class RegulationsOC(TranslationOptions):
-    fields = 'description', 'file'
+    fields = 'description', 'file',
 
 
 @register(RecommendationOC)
@@ -79,7 +79,7 @@ class RecommendationOC(TranslationOptions):
 
 @register(CorruptionCategory)
 class CorruptionCategory(TranslationOptions):
-    fields = 'name'
+    fields = 'name',
 
 
 @register(Corruption)
