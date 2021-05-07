@@ -1,0 +1,102 @@
+.about-ministry {
+   @include adaptive-value(padding-top, 122, 92, 0);
+
+   .breadcrumb {
+      font-family: PT Sans;
+      margin-bottom: 16px;
+
+      p {
+         font-size: 14px;
+         line-height: 18px;
+         color: #2F2F2F;
+         margin: 0;
+
+         span {
+            color: #D6DEF5;
+         }
+      }
+
+   }
+
+   .wrapper {
+      background: #F8F8F8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px;
+      font-size: 13px;
+      line-height: 17px;
+      color: #1F1F1F;
+      column-gap: 8px;
+      margin-bottom: 30px;
+   }
+
+   .side-link {
+      width: 100%;
+      height: 40px;
+      background: #F3F3F3;
+      border-radius: 2px;
+      font-size: 15px;
+      color: #636363;
+      padding-left: 16px;
+      line-height: 40px;
+      margin-bottom: 8px;
+
+      &:last-child {
+         margin-bottom: 0;
+      }
+
+      &.active {
+         background: $blue;
+         color: #fff;
+      }
+   }
+
+   &__img {
+      object-fit: cover;
+      width: 100%;
+   }
+
+   &__title {
+      margin-top: 24px;
+      margin-bottom: 14px;
+   }
+
+   &__descr {
+      font-family: PT Sans;
+      line-height: 150%;
+      color: #636363;
+      margin-bottom: 32px;
+   }
+
+   .share {
+      margin-top: 16px;
+   }
+   &-icons {
+      display: flex;
+      list-style: none;
+      padding: 0;
+   }
+   .nav-item-border {
+      width: 24px;
+      height: 24px;
+      border: 1px solid #F3F3F3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 6px;
+      transition: .6s;
+
+      &:last-child {
+         margin-right: 0;
+      }
+
+      &:hover {
+         background: $blue;
+
+         .fab {
+            color: #fff;
+         }
+      }
+   }
+}

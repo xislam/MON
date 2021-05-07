@@ -1,0 +1,211 @@
+.header {
+   background: #fff;
+   font-family: PT Sans;
+   // min-height: 56px;
+   z-index: 2;
+
+   &__btn {
+      @include btn(153px, 32px, none, #2F80ED, 12px, #2F80ED);
+      transition: .6s;
+
+      &:hover {
+         background-color: #112F8A;
+         color: #fff;
+      }
+   }
+
+   .nav-first {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   }
+
+   .navbar {
+      &-brand {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         color: #656565;
+         text-decoration: none;
+         font-weight: bold;
+         text-transform: uppercase;
+         margin: 0;
+         font-size: 11px;
+         transition: .6s;
+
+         &:hover {
+            color: $blue;
+         }
+
+         &__img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+         }
+      }
+
+      &-nav {
+         display: flex;
+         justify-content: space-around;
+
+         &-1 {
+            width: 50%;
+         }
+      }
+
+      &-toggler {
+         box-shadow: none;
+         padding: 0;
+
+         &.collapsed {
+            .burger__line {
+               background: #4E67B3;
+
+               &::before {
+                  top: 8px;
+                  transform: rotate(0);
+               }
+
+               &::after {
+                  bottom: 8px;
+                  transform: rotate(0);
+
+               }
+            }
+         }
+
+         .burger {
+            height: 26px;
+            width: 26px;
+
+            &__line {
+               position: relative;
+               width: 30px;
+               height: 2px;
+               background: none;
+
+               &::before {
+                  content: '';
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  top: 0;
+                  left: 0;
+                  background: #4E67B3;
+                  transform: rotate(135deg);
+                  transition: .25s;
+               }
+
+               &::after {
+                  content: '';
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  bottom: 0;
+                  left: 0;
+                  background: #4E67B3;
+                  transform: rotate(45deg);
+                  transition: .25s;
+               }
+            }
+         }
+      }
+   }
+
+   .nav-line {
+      position: relative;
+
+      &::before {
+         content: '';
+         position: absolute;
+         top: 50%;
+         transform: translateY(-50%);
+         left: 0;
+         width: 1px;
+         height: 20px;
+         background: #EAEAEA;
+      }
+   }
+
+   .nav-link {
+      font-size: 14px;
+      color: #222;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+         color: $blue;
+      }
+   }
+
+   .dropdown {
+      &-menu {
+         margin: 0;
+         min-width: 200px;
+         padding: 0;
+         border: none;
+         border-radius: 0;
+         outline: none;
+         background-clip: border-box;
+
+         &:hover {
+            display: block;
+         }
+
+         &[data-bs-popper] {
+            margin: 0;
+         }
+      }
+
+      &-toggle {
+         &.show {
+            color: $blue;
+         }
+
+         &:hover+.dropdown-menu {
+            display: block;
+         }
+
+         &:hover~.home-parallax {
+            top: 250px;
+         }
+      }
+
+      &-item {
+         font-size: 11px;
+         min-height: 40px;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+
+         &:hover {
+            background: $blue;
+            color: #fff;
+         }
+      }
+   }
+
+   .nav-item-border {
+      width: 24px;
+      height: 24px;
+      border: 1px solid #F3F3F3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 6px;
+      transition: .6s;
+
+      &:last-child {
+         margin-right: 0;
+      }
+
+      &:hover {
+         background: $blue;
+
+         .fab {
+            color: #fff;
+         }
+      }
+   }
+}

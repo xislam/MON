@@ -1,0 +1,74 @@
+.home {
+   @include adaptive-value(padding-top, 320, 160, 0);
+   @include adaptive-value(padding-bottom, 176, 97, 0);
+   position: relative;
+   overflow: hidden;
+   min-height: 100vh;
+
+   &-bg {
+      background: #000;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+
+      &-video {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+
+         iframe {
+            position: absolute;
+            top: 0;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            pointer-events: none;
+         }
+      }
+
+      &-layer {
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         background: #000;
+         opacity: 70%;
+         z-index: 1;
+      }
+   }
+
+   &-parallax {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+   }
+
+   &__line {
+      height: 1px;
+      background: #fff;
+      @include adaptive-value(width, 75, 40, 0);
+      margin: 24px auto 32px;
+   }
+
+   &__btn {
+      @include btn(160px, 36px, $blue, $blue, 13px, #fff);
+      margin: auto;
+
+      &:hover {
+         color: #fff;
+      }
+   }
+}

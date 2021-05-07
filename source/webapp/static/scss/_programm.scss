@@ -1,0 +1,114 @@
+.programm {
+   @include adaptive-value(padding-top, 96, 33, 0);
+
+   &__descr {
+      font-family: PT Sans;
+      @include adaptive-value(font-size, 14, 12, 0);
+      line-height: 18px;
+      color: #979797;
+   }
+
+   &__title {
+      margin-top: 4px;
+      margin-bottom: 16px;
+   }
+
+   &-line {
+      margin: 0 auto 24px;
+      width: 75px;
+      height: 1px;
+      background: #112F8A;
+   }
+
+   &-caption {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include adaptive-value(column-gap, 32, 16, 0);
+      @include adaptive-value(row-gap, 32, 16, 0);
+      list-style: none;
+      margin-bottom: 40px;
+   }
+
+   &-tab {
+      width: 159px;
+      height: 44px;
+      border: 1px solid #CECECE;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: PT Sans;
+      font-size: 14px;
+      transition: .6s;
+      transform: skew(-25deg);
+      span {
+         transform: skew(25deg);
+      }
+
+      &:hover {
+         cursor: pointer;
+         color: $blue;
+         border-color: $blue;
+      }
+
+      &.active {
+         color: #fff;
+         border-color: $blue;
+         background: $blue;
+      }
+   }
+
+   &-content {
+      position: relative;
+      display: none;
+
+      &.active {
+         display: flex;
+      }
+
+      &__text {
+         font-family: PT Sans;
+         @include adaptive-value(font-size, 16, 13, 0);
+         line-height: 150%;
+         color: #717B85;
+         text-align: justify;
+         margin-top: 12px;
+         margin-bottom: 66px;
+      }
+
+      .left {
+         position: relative;
+         padding-left: 16px;
+
+         &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: calc(100%);
+            height: calc(100% + 32px);
+            border: 1px solid #E4F2FF;
+         }
+      }
+
+      .right {
+         border: 1px solid #E4F2FF;
+         padding: 60px;
+         @include adaptive-value(padding, 60, 15, 0);
+
+         &-subtitle {
+            @include adaptive-value(font-size, 24, 15, 0);
+         }
+      }
+
+      &__btn {
+         @include btn(250px, 44px, $blue, $blue, 16px, #fff)
+      }
+   }
+
+   &-divide-line {
+      margin-top: 96px;
+      margin-bottom: 40px;
+   }
+}

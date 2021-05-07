@@ -1,0 +1,47 @@
+.footer {
+   background: #F5F5F5;
+   padding: 40px 0 24px;
+
+   &__title {
+      font-family: PT Sans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 150%;
+      letter-spacing: 0.02em;
+      color: #0D0D0D;
+      margin-bottom: 8px;
+   }
+
+   &__text {
+      font-family: PT Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 125%;
+      color: #474747;
+      margin-bottom: 10px;
+
+      &:last-child {
+         margin-bottom: 0;
+      }
+
+      &:hover {
+         color: #005D9C;
+         cursor: pointer;
+      }
+   }
+
+   &-divide-line {
+      margin-top: 56px;
+      margin-bottom: 24px;
+   }
+
+   &-rights {
+      font-family: PT Sans;
+      color: #474747;
+   }
+   &-link {
+      @include adaptive-value(font-size, 20, 30, 0);
+   }
+}

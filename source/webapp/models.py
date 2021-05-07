@@ -2,6 +2,8 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from ckeditor.fields import RichTextField
 
+from accounts.models import User
+
 
 class StatusChoice(models.TextChoices):
     UNPROCESSED = 'unprocessed', _('unprocessed')
@@ -20,6 +22,9 @@ class News(models.Model):
                               choices=StatusChoice.choices,
                               default=StatusChoice.UNPROCESSED)
     data_cr = models.DateField(auto_now_add=True, verbose_name='Дата создания')
+    director = models.OneToOneField('accounts.User', models.SET_NULL, null=True,
+                                    related_name='own_news', verbose_name=_('director'))
+    employee = models.OneToOneField('accounts.User', models.SET_NULL, null=True, verbose_name=_('employee'))
 
     def __str__(self):
         return self.title
@@ -74,6 +79,13 @@ class OrganizationStructure(models.Model):
         verbose_name_plural = 'Структура организации'
 
 
+class Organization(models.Model):
+    name = models.CharField(max_length=300, verbose_name='Наименование')
+    director = models.OneToOneField('accounts.User', models.SET_NULL, null=True,
+                                    related_name='own_organization', verbose_name=_('director'))
+    employee = models.OneToOneField('accounts.User', models.SET_NULL, null=True, verbose_name=_('employee'))
+
+
 class CategoryNPA(models.Model):
     name = models.CharField(verbose_name="Категория НПА", max_length=100)
     data_cr = models.DateField(auto_now_add=True, verbose_name='Дата создания')
@@ -96,6 +108,9 @@ class NPA(models.Model):
     file = models.FileField(verbose_name='Документ', upload_to='doc')
     text = RichTextField()
     data_cr = models.DateField(auto_now_add=True, verbose_name="Дата создания")
+    director = models.OneToOneField('accounts.User', models.SET_NULL, null=True,
+                                    related_name='own_npa', verbose_name=_('director'))
+    employee = models.OneToOneField('accounts.User', models.SET_NULL, null=True, verbose_name=_('employee'))
 
     def __str__(self):
         return self.title
@@ -149,6 +164,9 @@ class Study(models.Model):
     file = models.FileField(verbose_name="Файл", upload_to="study")
     name = models.CharField(max_length=100, verbose_name='Наименование Файла')
     data_cr = models.DateField(auto_now_add=True, verbose_name='Дата создания')
+    director = models.OneToOneField('accounts.User', models.SET_NULL, null=True,
+                                    related_name='own_study', verbose_name=_('director'))
+    employee = models.OneToOneField('accounts.User', models.SET_NULL, null=True, verbose_name=_('employee'))
 
     def __str__(self):
         return self.directions

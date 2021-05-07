@@ -3,6 +3,7 @@ from django.contrib import admin
 from ckeditor.widgets import CKEditorWidget
 from modeltranslation.admin import TabbedTranslationAdmin
 
+from accounts.models import Role
 from webapp.models import *
 
 
@@ -229,6 +230,11 @@ class PositionAdmin(TabbedTranslationAdmin):
         list_display = 'description',
         search_fields = ['description']
         form = PositionForm
+
+    def render_change_form(self, request, context, add=False, change=False, form_url='', obj=None):
+        context['adminform'].form.fields['director'].queryset = User.objects.filter(role=Role.DIRECTOR)
+        context['adminform'].form.fields['librarian'].queryset = User.objects.filter(role=Role.LIBRARIAN)
+        return super().render_change_form(request, context, add, change, form_url, obj)
 
 
 admin.site.register(Position, PositionAdmin)
@@ -570,3 +576,10 @@ class SURAdmin(TabbedTranslationAdmin):
 
 
 admin.site.register(SUR, SURAdmin)
+
+
+@admin.register(Organization)
+class Organization(admin.ModelAdmin):
+    class Meta:
+        list_display = 'name'
+        search_fields = ['name']

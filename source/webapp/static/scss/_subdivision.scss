@@ -1,0 +1,70 @@
+.subdivision {
+   @include adaptive-value(padding-bottom, 80, 40, 0);
+   @include adaptive-value(padding-top, 56, 32, 0);
+   background: linear-gradient(3.07deg, #FBFBFB 3.94%, rgba(252, 252, 252, 0) 106.65%);
+
+   &-carousel {
+
+      &-item {
+         padding-left: 8px;
+         padding-right: 8px;
+         transition: .6s;
+
+         &:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+         }
+
+         &__bg-1 {
+            padding: 176px 16px 16px;
+            background: url(../images/subdivision/item-1.png) center center / cover no-repeat;
+         }
+
+         &__bg-2 {
+            padding: 176px 16px 16px;
+            background: url(../images/subdivision/item-2.png) center center / cover no-repeat;
+         }
+
+         &__bg-3 {
+            padding: 176px 16px 16px;
+            background: url(../images/subdivision/item-3.png) center center / cover no-repeat;
+         }
+
+         &__title {
+            font-family: PT Serif;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 125%;
+            color: #FFFFFF;
+         }
+
+         &__btn {
+            @include btn(151px, 36px, $blue, $blue, 13px, #fff)
+         }
+      }
+   }
+
+   .slick-prev {
+      background: url(../images/subdivision/prev.svg) center center / cover no-repeat;
+      border: none;
+      position: relative;
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 50%;
+      left: -50px;
+      transform: translateY(-50%);
+   }
+
+   .slick-next {
+      background: url(../images/subdivision/next.svg) center center / cover no-repeat;
+      border: none;
+      position: relative;
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: -50px;
+   }
+}

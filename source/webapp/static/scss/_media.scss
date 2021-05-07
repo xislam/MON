@@ -1,0 +1,107 @@
+@media (max-width: 576px) {
+   .header {
+      height: 68px;
+      width: 100%;
+      z-index: 10;
+
+      &__btn {
+         width: 100%;
+      }
+
+      .navbar {
+         &-collapse {
+            .row {
+               justify-content: flex-end;
+            }
+         }
+
+         &-nav {
+            width: 100%;
+         }
+
+         &-icons {
+            flex-direction: row;
+         }
+      }
+
+      .nav-line {
+         display: none;
+      }
+
+      .nav-first {
+         padding: 20px;
+         flex-direction: column;
+         width: 60%;
+         box-shadow: none;
+         background: #fff;
+      }
+
+   }
+
+   .home {
+      min-height: auto;
+   }
+
+   .news {
+      &__line-1 {
+         display: none;
+      }
+
+      .col {
+         flex: none;
+
+         .card {
+            margin-bottom: 20px;
+         }
+      }
+   }
+
+   .development {
+      padding-bottom: 275px;
+      background: $blue url(../images/development/development__bg.png) center bottom / contain no-repeat;
+
+      &-parallax {
+         display: none;
+      }
+   }
+
+   .subdivision {
+      &-carousel-item {
+         margin-bottom: 20px;
+      }
+   }
+
+   .programm {
+      &-caption {
+         flex-wrap: wrap;
+         padding: 0;
+      }
+
+      .left {
+         padding: 11px;
+
+         &::before {
+            width: 100%;
+            height: 100%;
+         }
+      }
+
+      &-divide-line {
+         display: none;
+      }
+   }
+
+   .calendar {
+      padding-top: 64px;
+
+      .more-link {
+         display: none;
+      }
+   }
+
+   .footer {
+      &__title {
+         margin-top: 32px;
+      }
+   }
+}

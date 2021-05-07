@@ -1,0 +1,126 @@
+.news {
+   padding-top: 64px;
+   padding-bottom: 80px;
+
+   &__line-1 {
+      margin-top: 24px;
+      margin-bottom: 32px;
+   }
+
+   &__line-2 {
+      margin-top: 40px;
+      margin-bottom: 24px;
+   }
+
+   &-main {
+      @include adaptive-value(padding-top, 290, 109, 0);
+      padding-left: 20px;
+      width: 100%;
+      height: 100%;
+      background: url(../images/news/news-main.png) center center / cover no-repeat;
+
+      &__date {
+         font-family: PT Sans;
+         @include adaptive-value(font-size, 14, 10, 0);
+         line-height: 125%;
+         @include adaptive-value(margin-bottom, 7, 2, 0);
+      }
+
+      &__text {
+         font-family: PT Sans;
+         font-weight: bold;
+         @include adaptive-value(font-size, 20, 12, 0);
+         line-height: 125%;
+      }
+   }
+
+   &__subtitle {
+      margin-bottom: 16px;
+      direction: ltr;
+   }
+
+   .recent-announcements {
+      height: 386px;
+      overflow: scroll;
+      direction: rtl;
+      padding-left: 23px;
+
+      &::-webkit-scrollbar {
+         width: 1px;
+         height: 0;
+      }
+
+      &::-webkit-scrollbar-thumb {
+         background: $blue;
+      }
+
+      &::-webkit-scrollbar-track {
+         background: #E8E8E8;
+      }
+
+      &__block {
+         direction: ltr;
+      }
+
+      &__text {
+         font-family: PT Sans;
+         font-size: 14px;
+         line-height: 125%;
+         color: #200E32;
+         margin-top: 4px;
+         margin-bottom: 16px;
+         transition: .6s;
+
+         &:hover {
+            color: $blue;
+            cursor: pointer;
+         }
+      }
+
+      &__line {
+         width: 100%;
+         height: 1px;
+         background: #E8E8E8;
+         margin-bottom: 16px;
+      }
+
+      &__btn {
+         @include btn(100%, 40px, none, $blue, 14px, $blue);
+         transition: .6s;
+
+         &:hover {
+            background-color: #112F8A;
+            color: #fff;
+         }
+      }
+   }
+
+   .card {
+      transition: .6s;
+
+      &:hover {
+         cursor: pointer;
+         transform: scale(1.05);
+         transition: .6s;
+
+         .card-text {
+            transition: .6s;
+            color: $blue;
+         }
+      }
+   }
+
+   .card-date {
+      margin: 8px 0 4px;
+      color: #777777;
+   }
+
+   .card-text {
+      transition: .6s;
+      font-family: PT Sans;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 116%;
+      color: #200E32;
+   }
+}

@@ -1,0 +1,32 @@
+.calendar {
+   &__card {
+      background: #FBFBFB;
+      padding: 18px 16px 20px;
+      border-left: 2px solid #6482DC;
+   }
+
+   &__title {
+      font-family: PT Serif;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 125%;
+      margin-bottom: 4px;
+      transition: .6s;
+
+      &:hover {
+         cursor: pointer;
+         color: $blue;
+      }
+   }
+
+   &__descr {
+      font-family: PT Sans;
+      font-size: 14px;
+      line-height: 150%;
+      color: #383838;
+   }
+   &-divide-line {
+      margin-top: 56px;
+      margin-bottom: 32px;
+   }
+}

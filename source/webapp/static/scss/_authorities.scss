@@ -1,0 +1,70 @@
+.authorities {
+   padding-bottom: 96px;
+
+   &__title {
+      font-size: 20px;
+      margin-bottom: 24px;
+
+      &:last-of-type {
+         margin-bottom: 16px;
+      }
+   }
+
+   &-carousel {
+      margin-right: -15px;
+      margin-left: -15px;
+
+      &-item {
+         padding-left: 15px;
+         padding-right: 15px;
+         transition: .6s;
+
+         &:hover {
+            color: $blue;
+            cursor: pointer;
+         }
+
+         &__wrapper {
+            background: #F8F8F8;
+            padding: 20px 40px;
+            text-transform: uppercase;
+            font-size: 10px;
+            font-weight: bold;
+            line-height: 1.5;
+            column-gap: 5px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+         }
+      }
+   }
+
+   .slick-prev {
+      background: url(../images/authorities/prev.svg)center center / cover no-repeat;
+      border: none;
+      position: relative;
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      top: calc(50% - 20px);
+      right: calc(100% + 19px);
+      transform: translateY(-50%);
+   }
+
+   .slick-next {
+      background: url(../images/authorities/next.svg)center center / cover no-repeat;
+      border: none;
+      position: relative;
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      top: calc(50% - 20px);
+      transform: translateY(-50%);
+      left: calc(100% + 19px);
+   }
+
+   &-divide-line {
+      margin-top: 42px;
+      margin-bottom: 24px;
+   }
+}

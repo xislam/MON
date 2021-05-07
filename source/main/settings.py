@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'webapp',
     'ckeditor',
     'ckeditor_uploader',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -126,7 +127,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
-LANGUAGE = (
+LANGUAGES = (
     ('ru', gettext('Russia')),
     ('ky', gettext('Kyrgyz'))
 )
@@ -149,3 +150,5 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 
 MEDIA_URL = '/documents/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+AUTH_USER_MODEL = 'accounts.User'
