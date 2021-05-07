@@ -12,6 +12,7 @@ class StatusChoice(models.TextChoices):
 
 
 class News(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     title = models.CharField(max_length=3000, verbose_name='Заголовок')
     subtitle = models.CharField(max_length=3000, verbose_name='Под заголовок')
     img = models.ImageField(null=True, blank=True, verbose_name='фото', upload_to="img")
@@ -24,7 +25,8 @@ class News(models.Model):
     data_cr = models.DateField(auto_now_add=True, verbose_name='Дата создания')
     director = models.OneToOneField('accounts.User', models.SET_NULL, null=True,
                                     related_name='own_news', verbose_name=_('director'))
-    employee = models.OneToOneField('accounts.User', models.SET_NULL, null=True, verbose_name=_('employee'))
+    employee = models.OneToOneField('accounts.User', models.SET_NULL, null=True, verbose_name=_('employee'),
+                                    related_name='emp')
 
     def __str__(self):
         return self.title
@@ -35,6 +37,7 @@ class News(models.Model):
 
 
 class ContentOrganizationCategory(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     category = models.CharField(max_length=200, verbose_name='Наименовение категории')
     data_cr = models.DateField(auto_now_add=True, verbose_name='Дата создания')
 
@@ -47,6 +50,7 @@ class ContentOrganizationCategory(models.Model):
 
 
 class ContentOrganization(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     category = models.ForeignKey(ContentOrganizationCategory, on_delete=models.CASCADE,
                                  related_name='related_to_content', verbose_name='Категория')
     title = models.CharField(max_length=200, verbose_name="Заголовок")
@@ -64,6 +68,7 @@ class ContentOrganization(models.Model):
 
 
 class OrganizationStructure(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     initials = models.CharField(max_length=400, verbose_name='Инициалы')
     title = models.CharField(max_length=500, verbose_name='Должность')
     phone = models.CharField(max_length=50, verbose_name='Телефон')
@@ -80,13 +85,16 @@ class OrganizationStructure(models.Model):
 
 
 class Organization(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     name = models.CharField(max_length=300, verbose_name='Наименование')
     director = models.OneToOneField('accounts.User', models.SET_NULL, null=True,
                                     related_name='own_organization', verbose_name=_('director'))
-    employee = models.OneToOneField('accounts.User', models.SET_NULL, null=True, verbose_name=_('employee'))
+    employee = models.OneToOneField('accounts.User', models.SET_NULL, null=True, verbose_name=_('employee'),
+                                    related_name="em")
 
 
 class CategoryNPA(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     name = models.CharField(verbose_name="Категория НПА", max_length=100)
     data_cr = models.DateField(auto_now_add=True, verbose_name='Дата создания')
 
@@ -99,6 +107,7 @@ class CategoryNPA(models.Model):
 
 
 class NPA(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     category = models.ForeignKey(CategoryNPA, on_delete=models.CASCADE,
                                  related_name='related_to_content', verbose_name='Категория НПА')
     title = models.CharField(verbose_name="Заголово", max_length=300)
@@ -110,7 +119,8 @@ class NPA(models.Model):
     data_cr = models.DateField(auto_now_add=True, verbose_name="Дата создания")
     director = models.OneToOneField('accounts.User', models.SET_NULL, null=True,
                                     related_name='own_npa', verbose_name=_('director'))
-    employee = models.OneToOneField('accounts.User', models.SET_NULL, null=True, verbose_name=_('employee'))
+    employee = models.OneToOneField('accounts.User', models.SET_NULL, null=True, verbose_name=_('employee'),
+                                    related_name="employee")
 
     def __str__(self):
         return self.title
@@ -121,6 +131,7 @@ class NPA(models.Model):
 
 
 class Leadership(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     initials = models.CharField(max_length=400, verbose_name='Инициалы')
     title = models.CharField(max_length=500, verbose_name='Должность')
     phone = models.CharField(max_length=50, verbose_name='Телефон')
@@ -136,6 +147,7 @@ class Leadership(models.Model):
 
 
 class Structure(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     name = models.CharField(max_length=100, verbose_name='Наименование')
     data_cr = models.DateField(auto_now_add=True, verbose_name='Дата создания')
 
@@ -144,6 +156,7 @@ class Structure(models.Model):
 
 
 class Position(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     description = RichTextField()
     data_cr = models.DateField(auto_now_add=True, verbose_name='Дата создания')
 
@@ -156,6 +169,7 @@ class Position(models.Model):
 
 
 class Study(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     directions = models.CharField(max_length=300, verbose_name='Направление')
     document_type = models.CharField(max_length=300, verbose_name='Вид документа')
     date = models.DateField(verbose_name='Дата')
@@ -166,7 +180,8 @@ class Study(models.Model):
     data_cr = models.DateField(auto_now_add=True, verbose_name='Дата создания')
     director = models.OneToOneField('accounts.User', models.SET_NULL, null=True,
                                     related_name='own_study', verbose_name=_('director'))
-    employee = models.OneToOneField('accounts.User', models.SET_NULL, null=True, verbose_name=_('employee'))
+    employee = models.OneToOneField('accounts.User', models.SET_NULL, null=True, verbose_name=_('employee'),
+                                    related_name="loyee")
 
     def __str__(self):
         return self.directions
@@ -177,6 +192,7 @@ class Study(models.Model):
 
 
 class Advertisement(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     title = models.CharField(max_length=300, verbose_name='Заголовок')
     data = models.DateField(verbose_name='Дата')
     text = RichTextField()
@@ -192,6 +208,7 @@ class Advertisement(models.Model):
 
 
 class CategoryOC(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     name = models.CharField(max_length=300, verbose_name='Категория')
     data_cr = models.DateField(auto_now_add=True, verbose_name='Дата создания')
 
@@ -204,6 +221,7 @@ class CategoryOC(models.Model):
 
 
 class StructureOC(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     category = models.ForeignKey(CategoryOC, on_delete=models.CASCADE, verbose_name='Категория ОС')
     initials = models.CharField(max_length=300, verbose_name='Инициалы')
     position = models.CharField(max_length=300, verbose_name='Должность и место работы')
@@ -221,6 +239,7 @@ class StructureOC(models.Model):
 
 
 class RegulationsOC(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     category = models.ForeignKey(CategoryOC, on_delete=models.CASCADE,
                                  related_name='related', verbose_name='Категория ОС')
     description = models.CharField(max_length=400, verbose_name="Описание")
@@ -236,6 +255,7 @@ class RegulationsOC(models.Model):
 
 
 class RecommendationOC(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     category = models.ForeignKey(CategoryOC, on_delete=models.CASCADE,
                                  related_name='category', verbose_name='Категория ОС')
     name = models.CharField(max_length=300, verbose_name="Наименование")
@@ -251,6 +271,7 @@ class RecommendationOC(models.Model):
 
 
 class CorruptionCategory(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     name = models.CharField(max_length=300, verbose_name='Категория')
 
     def __str__(self):
@@ -262,6 +283,7 @@ class CorruptionCategory(models.Model):
 
 
 class Corruption(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     category = models.ForeignKey(CorruptionCategory, on_delete=models.CASCADE,
                                  related_name='category', verbose_name='Категория')
     title = models.CharField(max_length=400, verbose_name="Заголовок")
@@ -278,6 +300,7 @@ class Corruption(models.Model):
 
 
 class VacancyCategory(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     name = models.CharField(max_length=300, verbose_name="Категория")
 
     def __str__(self):
@@ -289,6 +312,7 @@ class VacancyCategory(models.Model):
 
 
 class Vacancy(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     title = models.CharField(max_length=500, verbose_name="Заголовок")
     data = models.DateField(verbose_name='Дата')
     text = models.CharField(max_length=3000, verbose_name='Текст')
@@ -304,6 +328,7 @@ class Vacancy(models.Model):
 
 
 class Contacts(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     title = models.CharField(max_length=100, verbose_name="заголовок")
     contacts = RichTextField()
 
@@ -316,6 +341,7 @@ class Contacts(models.Model):
 
 
 class Directory(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     title = models.CharField(max_length=300, verbose_name="Организации")
     contacts = RichTextField()
 
@@ -328,6 +354,7 @@ class Directory(models.Model):
 
 
 class SUR(models.Model):
+    user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     title = models.CharField(max_length=500, verbose_name="Заголовок")
     file = models.FileField(verbose_name='файл', upload_to="doc")
     date = models.DateField(verbose_name='Дата')

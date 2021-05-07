@@ -231,10 +231,7 @@ class PositionAdmin(TabbedTranslationAdmin):
         search_fields = ['description']
         form = PositionForm
 
-    def render_change_form(self, request, context, add=False, change=False, form_url='', obj=None):
-        context['adminform'].form.fields['director'].queryset = User.objects.filter(role=Role.DIRECTOR)
-        context['adminform'].form.fields['librarian'].queryset = User.objects.filter(role=Role.LIBRARIAN)
-        return super().render_change_form(request, context, add, change, form_url, obj)
+
 
 
 admin.site.register(Position, PositionAdmin)
