@@ -11,6 +11,11 @@ class StatusChoice(models.TextChoices):
     DECLINED = 'declined', _('declined')
 
 
+class PinStatus(models.TextChoices):
+    PIN = 'pin',_('Избранный')
+    UNPIN = 'unpin',_('Не избранный')
+
+
 class News(models.Model):
     user = models.ForeignKey(User, verbose_name=u"пользователь", on_delete=models.SET_NULL, blank=True, null=True)
     title = models.CharField(max_length=3000, verbose_name='Заголовок')
@@ -22,6 +27,7 @@ class News(models.Model):
     status = models.CharField(_('status'), max_length=45,
                               choices=StatusChoice.choices,
                               default=StatusChoice.UNPROCESSED)
+    pin = models.CharField(_('Избранное'), max_length=45, choices=PinStatus, default= PinStatus.UNPIN)
     data_cr = models.DateField(auto_now_add=True, verbose_name='Дата создания')
     director = models.OneToOneField('accounts.User', models.SET_NULL, null=True,
                                     related_name='own_news', verbose_name=_('director'))

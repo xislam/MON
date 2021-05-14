@@ -1,0 +1,201 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>{% block title %}Министерство образования и науки Кыргызской Республики{% endblock %}</title>
+   <link rel="stylesheet" href="../static/src/style/style.css">
+</head>
+<header class="header fixed-top" id="header">
+      <nav class="navbar navbar-expand-lg">
+         <div class="container">
+            <a href="#" class="navbar-brand">
+               <img src="../static/src/images/header/logo.svg" alt="" class="navbar-brand__img d-lg-none d-block">
+            </a>
+            <button id="burger" class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+               data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+               aria-label="Toggle navigation">
+               <div class="burger align-items-center d-flex">
+                  <div class="burger__line"></div>
+               </div>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+               <div class="row">
+                  <div class="nav-first col-12">
+                     <a href="#" class="navbar-brand d-lg-flex d-none">
+                        <img src="../static/src/images/header/logo.svg" alt="" class="navbar-brand__img">
+                        министерство <br> образования
+                        и науки <br>
+                        кыргызской республики
+                     </a>
+                     <ul class="navbar-nav navbar-nav-1">
+                        <li class="nav-item">
+                           <a href="" class="nav-link">
+                              <img class="me-1" src="../static/src/images/header/news.svg" alt="">
+                              Новости</a>
+                        </li>
+                        <span class="nav-line"></span>
+                        <li class="nav-item">
+                           <a href="" class="nav-link">
+                              <img class="me-1" src="../static/src/images/header/money.svg" alt="">
+                              Стипендии</a>
+                        </li>
+                        <span class="nav-line"></span>
+                        <li class="nav-item">
+                           <a href="" class="nav-link">
+                              <img class="me-1" src="../static/src/images/header/cap.svg" alt="">
+                              Уровень
+                              образования</a>
+                        </li>
+                        <span class="nav-line"></span>
+                        <li class="nav-item">
+                           <a href="" class="nav-link">
+                              <img class="me-1" src="../static/src/images/header/phone.svg" alt="">
+                              Контакты</a>
+                        </li>
+                     </ul>
+                     <ul class="navbar-nav">
+                        <li class="nav-item">
+                           <a href="" class="nav-link">🇰🇬 Кыргызча</a>
+                        </li>
+                        <li class="nav-item">
+                           <a href="" class="nav-link d-flex">🇷🇺 Русский</a>
+                        </li>
+                     </ul>
+                     <button class="header__btn">Открытые данные</button>
+                  </div>
+                  <div class="nav-first col-12">
+                     <ul class="navbar-nav">
+                        <li class="nav-item dropdown me-5 dropright">
+                           <a href="../static/src/desktop/index.html" class="nav-link btn-prim dropdown-toggle"
+                              id="navbarDropdownMenuLink" aria-expanded="false">О
+                              министерстве</a>
+                           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                              <li><a href="" class="dropdown-item">Наша История</a></li>
+                              <li class="dropend">
+                                 <a href="" class="dropdown-item dropdown-toggle" id="navbarDropdownMenuLink-1"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">Галерея</a>
+                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink-1">
+                                    <li><a href="" class="dropdown-item">Фото галерея</a></li>
+                                    <li><a href="" class="dropdown-item">Видео галерея</a></li>
+                                 </ul>
+                              </li>
+                              <li><a href="" class="dropdown-item">Новости</a></li>
+                              <li><a href="" class="dropdown-item">Программы развития</a></li>
+                           </ul>
+                        </li>
+                        <li class="nav-item dropdown me-5">
+                           <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button"
+                              data-bs-toggle="dropdown" aria-expanded="false">Нпа</a>
+                           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                           </ul>
+                        </li>
+                        <li class="nav-item dropdown me-5">
+                           <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button"
+                              data-bs-toggle="dropdown" aria-expanded="false">Исследование</a>
+                           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                           </ul>
+                        </li>
+                        <li class="nav-item dropdown me-5">
+                           <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button"
+                              data-bs-toggle="dropdown" aria-expanded="false">Объявление</a>
+                           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                           </ul>
+                        </li>
+                        <li class="nav-item dropdown me-5">
+                           <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button"
+                              data-bs-toggle="dropdown" aria-expanded="false">ОС</a>
+                           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                           </ul>
+                        </li>
+                        <li class="nav-item dropdown me-5">
+                           <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button"
+                              data-bs-toggle="dropdown" aria-expanded="false">Антикоррупционная
+                              деятельнось</a>
+                           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                           </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                           <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button"
+                              data-bs-toggle="dropdown" aria-expanded="false">Вакансии</a>
+                           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                           </ul>
+                        </li>
+                     </ul>
+                     <ul class="navbar-nav navbar-icons">
+                        <li class="nav-item nav-item-border"><a href="" class="nav-link"><i
+                                 class="fab fa-youtube"></i></a></li>
+                        <li class="nav-item nav-item-border"><a href="" class="nav-link"><i
+                                 class="fab fa-instagram"></i></a></li>
+                        <li class="nav-item nav-item-border"><a href="" class="nav-link"><i
+                                 class="fab fa-twitter"></i></a></li>
+                        <li class="nav-item nav-item-border"><a href="" class="nav-link"><i
+                                 class="fab fa-facebook-f"></i></a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </nav>
+   </header>
+<body id="root">
+    {% block content %}
+    {% endblock content %}
+</body>
+<footer class="footer">
+      <div class="container">
+         <div class="row">
+            <div class="col-12 col-lg-3">
+               <h3 class="footer__title">О министерстве</h3>
+               <p class="footer__text">Новости</p>
+               <p class="footer__text">Галерея</p>
+               <p class="footer__text">Наша история</p>
+               <p class="footer__text">Программы развития</p>
+            </div>
+            <div class="col-12 col-lg-3">
+               <h3 class="footer__title">Образование</h3>
+               <p class="footer__text">Дошкольное образование</p>
+               <p class="footer__text">Школьное образование</p>
+               <p class="footer__text">Средне професстональное
+                  образование</p>
+               <p class="footer__text">Начальное профессионально
+                  образование</p>
+            </div>
+            <div class="col-12 col-lg-3">
+               <h3 class="footer__title">Исследования</h3>
+               <p class="footer__text">Патенты</p>
+               <p class="footer__text">Отчеты</p>
+               <p class="footer__text">Гранты</p>
+            </div>
+            <div class="col-12 col-lg-3">
+               <h3 class="footer__title">Мы в социальных сетях</h3>
+               <ul class="navbar-nav d-flex flex-row">
+                  <li class="footer-item me-3"><a href="" class="footer-link"><i class="fab fa-youtube"></i></a>
+                  </li>
+                  <li class="footer-item me-3"><a href="" class="footer-link"><i class="fab fa-instagram"></i></a>
+                  </li>
+                  <li class="footer-item me-3"><a href="" class="footer-link"><i class="fab fa-twitter"></i></a>
+                  </li>
+                  <li class="footer-item"><a href="" class="footer-link"><i class="fab fa-facebook-f"></i></a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="divide-line footer-divide-line"></div>
+         <p class="footer-rights text-center">© 2016-2020. Министерство образования Кыргызской Республики</p>
+      </div>
+   </footer>
+   <div id="layer"></div>
+{% block js %}
+   <script src="{% static 'src/libs/jquery/js/jquery.min.js'%}"></script>
+   <script src="{% static 'src/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+   <script src="{% static 'src/libs/slick/slick.min.js' %}"></script>
+   <script src="{% static 'src/libs/OwlCarousel2-2.3.4/js/owl.carousel.min.js' %}"></script>
+   <script src="{% static 'src/libs/fancybox/js/jquery.fancybox.min.js' %}"></script>
+   <script src="{% static 'src/js/script.js' %}"></script>
+{% endblock %}
+</body>
+</html>
